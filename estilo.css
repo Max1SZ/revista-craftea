@@ -1,0 +1,20 @@
+.cabeza
+{
+	background-color:grey;
+	color:white;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	padding: 10px 30%;
+}
+.selector ul 
+		{
+			list-style: none;
+			display:flex;
+			margin: 0;
+			padding: 0;
+		}
+.selector li
+		{
+			margin-left: 20px;
+		}
