@@ -1,63 +1,244 @@
 <!DOCTYPE html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Revista CRAFTEA | Divierte y Crea </title>
-<link rel="icon" type="image/png" href="icon.png">
-<meta charset='UTF-8'>
-<!-- <link rel="stylesheet" href="estilo.css"> 
-lo quitamos por que no es algo detallado -->
-<style>
-body
-{
-margin: 0;
-padding: 0;
-}
-.cabeza
-{
-            background-color: lightgrey;
-            padding: 25px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-			gap: 15px;
-            font-family: 'Press Start 2P', monospace;
-}
-@media (min-width: 768px) {
-            .cabeza {
-                padding: 30px 5%;
-            }
-        }
+	<html lang="es">
+	<head>
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta charset="UTF-8">
+	  <title>Revista CRAFTEA | Divierte y Crea</title>
+	  <link rel="icon" type="image/png" href="icon.png">
+	  <style>
+		* { margin: 0; padding: 0; box-sizing: border-box; }
 
-
-.selector ul 
-		{
-			list-style: none;
-            margin: 20px 0 0 0;
-            padding: 0;
-            display: flex;
-            gap: 25px;
+		body {
+		  font-family: sans-serif;
+		  background-color: #fff8f4;
 		}
-.selector li
-		{
-			margin-left: 20px;
+
+		/* HEADER */
+		.cabeza {
+		  background-color: #ffe0c6;
+		  padding: 25px 20px;
+		  display: flex;
+		  flex-direction: column;
+		  align-items: center;
+		  gap: 15px;
 		}
-</style>
 
-</head>
+		.logo img {
+		  max-height: 80px;
+		  width: auto;
+		}
 
-<header class="cabeza"> <!-- contenedor que indica los navegadores asi -->
-<div class="logo">
-	<img src="logo.png">
-</div>
+		.selector ul {
+		  list-style: none;
+		  display: flex;
+		  gap: 10px;
+		  flex-wrap: wrap;
+		  justify-content: center;
+		}
 
-	<nav class="selector">
-		<ul>
+		.selector a {
+		  color: #c07030;
+		  text-decoration: none;
+		  font-size: 13px;
+		  font-weight: bold;
+		  padding: 6px 14px;
+		  border-radius: 8px;
+		  transition: background 0.15s;
+		}
+
+		.selector a:hover {
+		  background-color: rgba(255, 170, 102, 0.3);
+		}
+
+		/* CONTENIDO */
+		main {
+		  max-width: 760px;
+		  margin: 0 auto;
+		  padding: 36px 20px;
+		}
+
+		.section-title {
+		  font-size: 13px;
+		  font-weight: bold;
+		  color: darkgrey;
+		  letter-spacing: 1.5px;
+		  text-transform: uppercase;
+		  margin-bottom: 20px;
+		  padding-bottom: 10px;
+		  border-bottom: 1px solid darkgrey;
+		}
+
+		/* GRILLA */
+		.grid {
+		  display: grid;
+		  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+		  gap: 20px;
+		}
+
+		.card {
+		  background: white;
+		  border: 1px solid #eee;
+		  border-radius: 12px;
+		  overflow: hidden;
+		  transition: transform 0.15s, border-color 0.15s;
+		}
+
+		.card:hover {
+		  transform: translateY(-3px);
+		  border-color: #ffaa66;
+		}
+
+		/* Portada cuando no hay imagen: muestra un bloque de color con texto */
+		.card-img-placeholder {
+		  width: 100%;
+		  aspect-ratio: 3 / 4;
+		  background: linear-gradient(145deg, #ffcfa0, #ff9f55);
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  font-size: 15px;
+		  font-weight: bold;
+		  color: white;
+		  letter-spacing: 1px;
+		}
+
+		/* Si tenés imagen de portada, usá esto en lugar del placeholder */
+		.card-img {
+		  width: 100%;
+		  aspect-ratio: 3 / 4;
+		  object-fit: cover;
+		  display: block;
+		}
+
+		.card-info {
+		  padding: 12px 14px;
+		  border-top: 1px solid #eee;
+		}
+
+		.card-num {
+		  font-size: 11px;
+		  color: #aaa;
+		  margin-bottom: 3px;
+		}
+
+		.card-title {
+		  font-size: 14px;
+		  font-weight: bold;
+		  color: #333;
+		  margin-bottom: 10px;
+		}
+
+		.btn-leer {
+		  display: inline-block;
+		  background-color: #ffaa66;
+		  color: white;
+		  font-size: 12px;
+		  font-weight: bold;
+		  padding: 6px 14px;
+		  border-radius: 8px;
+		  text-decoration: none;
+		  transition: background 0.15s;
+		}
+
+		.btn-leer:hover {
+		  background-color: #e8924f;
+		}
+
+		/* Tarjetas "próximamente" */
+		.card.soon {
+		  pointer-events: none;
+		}
+
+		.card-img-soon {
+		  width: 100%;
+		  aspect-ratio: 3 / 4;
+		  background: #f0e8e0;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  font-size: 13px;
+		  color: darkgrey;
+		  font-style: italic;
+		}
+
+		.btn-soon {
+		  display: inline-block;
+		  font-size: 12px;
+		  color: darkgrey;
+		  font-style: italic;
+		}
+
+		/* FOOTER */
+		footer {
+		  text-align: center;
+		  padding: 30px 20px;
+		  font-size: 12px;
+		  color: grey;
+		  border-top: 1px solid grey;
+		  margin-top: 40px;
+		}
+	  </style>
+	</head>
+	<body>
+
+	  <header class="cabeza">
+		<div class="logo">
+		  <img src="logo.png" alt="Revista CRAFTEA">
+		</div>
+		<nav class="selector">
+		  <ul>
 			<li><a href="#">impresa</a></li>
 			<li><a href="#">digital</a></li>
 			<li><a href="#">merch</a></li>
 			<li><a href="#">suscripciones</a></li>
-		</ul>
-	</nav>
-</header>
+		  </ul>
+		</nav>
+	  </header>
 
-</html>
+	  <main>
+		<p class="section-title">Ediciones digitales</p>
+
+		<div class="grid">
+
+		  <!-- EDICIÓN 1: reemplazá el href con tu link de Google Drive -->
+		  <div class="card">
+			<!--<div class="card-img-placeholder">CRAFTEA</div>
+			 Si tenés imagen de portada, comentá la línea de arriba y descomentá esta: -->
+			<img class="card-img" src="portada1.png" alt="Portada N°1"> 
+			<div class="card-info">
+			  <p class="card-num">N° 1</p>
+			  <p class="card-title">Edición de lanzamiento</p>
+			  <a class="btn-leer" href="https://drive.google.com/file/d/1gsqAacc5URfB736E-zXnHnWc_AA2tEXi/view?usp=sharing" target="_blank">Leer gratis</a>
+			</div>
+		  </div>
+
+		  <!-- PRÓXIMAMENTE 2 -->
+		  <div class="card soon">
+			<div class="card-img-soon">próximamente</div>
+			<div class="card-info">
+			  <p class="card-num">N° 2</p>
+			  <p class="card-title">Segunda edición</p>
+			  <span class="btn-soon">Próximamente</span>
+			</div>
+		  </div>
+
+		  <!-- PRÓXIMAMENTE 3 -->
+		  <div class="card soon">
+			<div class="card-img-soon">próximamente</div>
+			<div class="card-info">
+			  <p class="card-num">N° 3</p>
+			  <p class="card-title">Tercera edición</p>
+			  <span class="btn-soon">Próximamente</span>
+			</div>
+		  </div>
+
+		</div>
+	  </main>
+
+	  <footer>
+		© 2026 Revista CRAFTEA · Divierte y Crea
+	  </footer>
+
+	</body>
+	</html>
+	
