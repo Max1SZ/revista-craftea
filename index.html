@@ -1,19 +1,61 @@
 <!DOCTYPE html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Revista CRAFTEA | Divierte y Crea </title>
+<link rel="icon" type="image/png" href="icon.png">
 <meta charset='UTF-8'>
-<link rel="stylesheet" href="estilo.css">
+<!-- <link rel="stylesheet" href="estilo.css"> 
+lo quitamos por que no es algo detallado -->
+<style>
+body
+{
+margin: 0;
+padding: 0;
+}
+.cabeza
+{
+            background-color: lightgrey;
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+			gap: 15px;
+            font-family: 'Press Start 2P', monospace;
+}
+@media (min-width: 768px) {
+            .cabeza {
+                padding: 30px 5%;
+            }
+        }
+
+
+.selector ul 
+		{
+			list-style: none;
+            margin: 20px 0 0 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+		}
+.selector li
+		{
+			margin-left: 20px;
+		}
+</style>
+
 </head>
 
-<header class="cabeza">
+<header class="cabeza"> <!-- contenedor que indica los navegadores asi -->
 <div class="logo">
-	<h1> INSERTE LOGO </h1>
+	<img src="logo.png">
 </div>
 
 	<nav class="selector">
 		<ul>
-			<li>a</li>
-			<li>b</li>
+			<li><a href="#">impresa</a></li>
+			<li><a href="#">digital</a></li>
+			<li><a href="#">merch</a></li>
+			<li><a href="#">suscripciones</a></li>
 		</ul>
 	</nav>
 </header>
